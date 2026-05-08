@@ -1,0 +1,70 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# 虚拟环境
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# 数据文件（大型，不入库）
+data/*.parquet
+data/cache/
+
+# 结果输出（每次运行生成，不入库）
+result/run_*/
+result/architecture_comparison_*.json
+result/architecture_comparison_*.csv
+result/spx_monthly_inspect_*.csv
+
+# 保留 result 目录占位
+!result/.gitkeep
+
+# 模型权重
+*.pt
+*.pth
+*.ckpt
+
+# 日志
+*.log
+logs/
+
+# IDE
+.vscode/
+.idea/
+*.suo
+*.user
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# 临时脚本（下划线开头）
+_*.py
+
+# 大型 CSV / 原始数据
+crsp_data/*.csv
+crsp_data/*.parquet
+crsp_data/__MACOSX/
+
+# 结果压缩包
+result/*.rar
+result/*.zip
+
+# 论文 PDF（二进制，通常不入库）
+*.pdf
+
+# 环境变量 / 密钥
+.env
+*.key
