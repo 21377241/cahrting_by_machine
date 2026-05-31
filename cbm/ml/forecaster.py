@@ -14,6 +14,40 @@ from cbm.core.types import FeatureSet, Forecast
 from cbm.ml.trainer import EnsembleModel
 
 
+def merge_forecast_wides(wides: list[pl.DataFrame]) -> pl.DataFrame:
+    """
+    合并多段扩展窗口的预测宽表。
+
+    各窗口 PERMNO 列集合不同，不能直接 ``pl.concat``；先转 long 再 pivot。
+    预测月份不重叠时，``(date, permno)`` 唯一。
+    """
+    if not wides:
+        raise ValueError("No forecast tables to merge")
+    if len(wides) == 1:
+        return wides[0].sort("date")
+
+    long_parts: list[pl.DataFrame] = []
+    for wide in wides:
+        tickers = [c for c in wide.columns if c != "date"]
+        if not tickers:
+            continue
+        long_parts.append(
+            wide.unpivot(on=tickers, index="date", variable_name="permno", value_name="score")
+            .drop_nulls("score")
+            .filter(pl.col("score").is_not_nan())
+        )
+
+    combined_long = pl.concat(long_parts).unique(subset=["date", "permno"], keep="first")
+    logger.info(
+        f"Merging {len(wides)} forecast windows: "
+        f"{combined_long['date'].n_unique()} months, {combined_long['permno'].n_unique()} PERMNO"
+    )
+    return (
+        combined_long.pivot(on="permno", index="date", values="score", aggregate_function="first")
+        .sort("date")
+    )
+
+
 def _coerce_date_column(df: pl.DataFrame) -> pl.DataFrame:
     """将 date 列统一转为 pl.Date 类型，兼容 Datetime / String 输入。"""
     if "date" not in df.columns:

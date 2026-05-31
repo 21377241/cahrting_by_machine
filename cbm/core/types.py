@@ -112,6 +112,7 @@ class FeatureSet:
     dates: np.ndarray              # Shape: (n_samples,) - date indices
     tickers: np.ndarray            # Shape: (n_samples,) - ticker indices
     market_caps: Optional[np.ndarray] = None  # Shape: (n_samples,)
+    excess_returns: Optional[np.ndarray] = None  # Shape: (n_samples,) - raw excess ret
     
     def __len__(self) -> int:
         return len(self.features)
@@ -123,6 +124,7 @@ class FeatureSet:
             "dates": self.dates,
             "tickers": self.tickers,
             "market_caps": self.market_caps,
+            "excess_returns": self.excess_returns,
         }
 
 

@@ -1,0 +1,28 @@
+{
+  "model_id": "subperiod_192701_196306",
+  "config": {
+    "experiment": "table8_subperiod_fit",
+    "train_period": [
+      "1927-01",
+      "1963-06"
+    ],
+    "fitting_months_only": false,
+    "architecture": "cnn_lstm"
+  },
+  "metrics": {
+    "train_spearman_corr": 0.12376805702271367,
+    "val_spearman_corr": 0.12171680992263555,
+    "train_mse": 0.9499431023960785,
+    "val_mse": 0.9584454774886043,
+    "n_samples": 359492,
+    "n_train": 287594,
+    "n_val": 71898,
+    "val_split": "random",
+    "fitting_months_only": false,
+    "feature_preprocessing": "none",
+    "optimization_period": [
+      "1927-01",
+      "1963-06"
+    ]
+  }
+}

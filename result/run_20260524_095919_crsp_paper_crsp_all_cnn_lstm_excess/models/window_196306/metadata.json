@@ -1,0 +1,43 @@
+{
+  "model_id": "window_196306",
+  "config": {
+    "architecture": "cnn_lstm",
+    "optimization_period": [
+      "1927-01",
+      "1963-06"
+    ],
+    "train_end": "1963-06",
+    "forecast_period": [
+      "1963-07",
+      "1974-12"
+    ],
+    "loss_function": "mse",
+    "weighting": "ewpm",
+    "return_variable": "ret_rank_norm",
+    "excess_returns": true,
+    "fitting_months_only": true,
+    "paper_sample_filter": true,
+    "feature_preprocessing": "none",
+    "batch_size": 256,
+    "n_ensemble": 30
+  },
+  "metrics": {
+    "train_spearman_corr": 0.1340747996351659,
+    "val_spearman_corr": 0.1261178118325761,
+    "train_mse": 0.9503840007467589,
+    "val_mse": 0.9489160956081634,
+    "n_samples": 179768,
+    "n_train": 125838,
+    "n_val": 53930,
+    "val_split": "random",
+    "fitting_months_only": true,
+    "feature_preprocessing": "none",
+    "optimization_period": [
+      "1927-01",
+      "1963-06"
+    ],
+    "non_fitting_spearman_corr": 0.12303915065962201,
+    "non_fitting_spearman_target": 0.12303915065962201,
+    "n_non_fitting_samples": 179724
+  }
+}

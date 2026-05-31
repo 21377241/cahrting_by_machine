@@ -1,0 +1,77 @@
+{
+  "experiment": "table8_subperiod_stability",
+  "created_at": "2026-05-30T19:06:42.187929",
+  "test_period": [
+    "1963-07",
+    "2022-12"
+  ],
+  "subperiod_fits": [
+    {
+      "label": "192701_196306",
+      "train_start": "1927-01",
+      "train_end": "1963-06"
+    },
+    {
+      "label": "196307_197412",
+      "train_start": "1963-07",
+      "train_end": "1974-12"
+    },
+    {
+      "label": "197501_198412",
+      "train_start": "1975-01",
+      "train_end": "1984-12"
+    },
+    {
+      "label": "198501_199412",
+      "train_start": "1985-01",
+      "train_end": "1994-12"
+    },
+    {
+      "label": "199501_200412",
+      "train_start": "1995-01",
+      "train_end": "2004-12"
+    },
+    {
+      "label": "200501_201412",
+      "train_start": "2005-01",
+      "train_end": "2014-12"
+    }
+  ],
+  "return_subperiods": [
+    {
+      "label": "196307_197412",
+      "start": "1963-07",
+      "end": "1974-12"
+    },
+    {
+      "label": "197501_198412",
+      "start": "1975-01",
+      "end": "1984-12"
+    },
+    {
+      "label": "198501_199412",
+      "start": "1985-01",
+      "end": "1994-12"
+    },
+    {
+      "label": "199501_200412",
+      "start": "1995-01",
+      "end": "2004-12"
+    },
+    {
+      "label": "200501_201412",
+      "start": "2005-01",
+      "end": "2014-12"
+    },
+    {
+      "label": "201501_202212",
+      "start": "2015-01",
+      "end": "2022-12"
+    }
+  ],
+  "portfolio": "table3_decile_nyse_breakpoint_value_weighted",
+  "forecast_source": "subperiod_only_refit",
+  "n_ensemble": 5,
+  "fitting_months_only": false,
+  "note": "Paper Table 8: ML trained only on each subperiod; portfolio months overlapping column train period excluded."
+}

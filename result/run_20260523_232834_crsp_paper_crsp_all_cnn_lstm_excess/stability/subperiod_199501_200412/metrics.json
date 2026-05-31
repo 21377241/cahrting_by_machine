@@ -1,0 +1,16 @@
+{
+  "train_spearman_corr": 0.1183762949549856,
+  "val_spearman_corr": 0.1190967179177026,
+  "train_mse": 0.9596576184041309,
+  "val_mse": 0.9596707484552813,
+  "n_samples": 726523,
+  "n_train": 581219,
+  "n_val": 145304,
+  "val_split": "random",
+  "fitting_months_only": false,
+  "feature_preprocessing": "none",
+  "optimization_period": [
+    "1995-01",
+    "2004-12"
+  ]
+}

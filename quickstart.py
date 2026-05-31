@@ -236,6 +236,16 @@ def main() -> None:
             experiment_tag=f"quickstart_spx_compare_{arch}",
         )
 
+        # 直接使用 ModelRegistry 将集成子模型权重存入 run 目录下的 model/ 子目录
+        from cbm.ml import ModelRegistry
+
+        try:
+            registry = ModelRegistry(path=str(run_dir / "model"))
+            registry.save(model_id, engine._models[model_id])  # noqa: SLF001
+            print(f"  模型权重已保存至: model/{model_id}/")
+        except Exception as exc:  # noqa: BLE001
+            print(f"  [警告] 模型权重保存失败（结果文件不受影响）: {exc}")
+
         row: dict = {
             "architecture": arch,
             "model_id": model_id,

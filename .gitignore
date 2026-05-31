@@ -22,8 +22,13 @@ env/
 data/*.parquet
 data/cache/
 
-# 结果输出（每次运行生成，不入库）
+# 结果输出（每次运行生成，默认不入库）
 result/run_*/
+# 论文复现 run（含预测、回测、模型权重）
+!result/run_20260523_232834_crsp_paper_crsp_all_cnn_lstm_excess/
+!result/run_20260523_232834_crsp_paper_crsp_all_cnn_lstm_excess/**
+!result/run_20260524_095919_crsp_paper_crsp_all_cnn_lstm_excess/
+!result/run_20260524_095919_crsp_paper_crsp_all_cnn_lstm_excess/**
 result/architecture_comparison_*.json
 result/architecture_comparison_*.csv
 result/spx_monthly_inspect_*.csv
@@ -31,10 +36,12 @@ result/spx_monthly_inspect_*.csv
 # 保留 result 目录占位
 !result/.gitkeep
 
-# 模型权重
+# 模型权重（论文复现 run 除外，见上方 result/run_* 例外）
 *.pt
 *.pth
 *.ckpt
+!result/run_20260523_232834_crsp_paper_crsp_all_cnn_lstm_excess/**/*.pt
+!result/run_20260524_095919_crsp_paper_crsp_all_cnn_lstm_excess/**/*.pt
 
 # 日志
 *.log
@@ -62,8 +69,10 @@ crsp_data/__MACOSX/
 result/*.rar
 result/*.zip
 
-# 论文 PDF（二进制，通常不入库）
+# 论文 PDF（二进制，通常不入库；复现 run 内附件除外）
 *.pdf
+!result/run_20260523_232834_crsp_paper_crsp_all_cnn_lstm_excess/**/*.pdf
+!result/run_20260524_095919_crsp_paper_crsp_all_cnn_lstm_excess/**/*.pdf
 
 # 环境变量 / 密钥
 .env

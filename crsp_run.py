@@ -45,7 +45,7 @@ from cbm.utils.results_io import save_pipeline_results
 # ── 数据范围 ──────────────────────────────────────────────────────────────────
 # 「快速验证」默认：1990-2022（33年），NYSE+AMEX+NASDAQ 全部普通股
 # 「论文对齐」可改为 start_date="1927-01-01" / end_date="2022-12-31"
-START_DATE = "1990-01-01"
+START_DATE = "1927-01-01"
 END_DATE   = "2022-12-31"
 
 # CRSP 宇宙：crsp_all / crsp_nyse / crsp_amex / crsp_nasdaq
@@ -53,9 +53,9 @@ UNIVERSE = "crsp_all"
 
 # ── 时期划分（月，含两端） ─────────────────────────────────────────────────────
 # 优化期（训练）
-OPTIMIZATION_PERIOD = ("1990-01", "2010-12")
+OPTIMIZATION_PERIOD = ("1927-01", "2020-12")
 # 测试期（样本外预测）
-TEST_PERIOD = ("2011-01", "2022-12")
+TEST_PERIOD = ("2021-01", "2025-12")
 
 # ── 目标变量（固定为逆正态秩变换，即论文最优设定） ─────────────────────────────
 RETURN_VARIABLE = ReturnVariable.RET_RANK_NORM   # Φ⁻¹[rank/(N+1)]
@@ -281,11 +281,31 @@ def main() -> None:
         experiment_tag=f"crsp_{UNIVERSE}_{ARCHITECTURE.value}_{RETURN_VARIABLE.value}",
     )
 
+    # ── 8. 保存模型权重 ────────────────────────────────────────────────────────
+    # 直接使用 ModelRegistry 将集成子模型权重（.pt）+ 预处理器（.joblib）存入
+    # run 目录下的 model/<model_id>/ 子目录，便于后续无需重训即可直接加载预测。
+    from cbm.ml import ModelRegistry
+
+    model_weights_base = run_dir / "model"
+    try:
+        registry = ModelRegistry(path=str(model_weights_base))
+        registry.save(model_id, engine._models[model_id])  # noqa: SLF001
+        model_weights_dir = model_weights_base / model_id
+        ensemble = engine._models[model_id]["model"]  # noqa: SLF001
+        n_members = len(ensemble.models) if hasattr(ensemble, "models") else 0
+        print(f"\n模型权重已保存至: {model_weights_dir.resolve()}")
+        print(f"  model_0.pt … model_{n_members - 1}.pt  — {n_members} 个集成成员权重")
+        print(f"  preprocessor.joblib                   — StandardScaler 参数")
+        print(f"  metadata.json                         — 训练配置与指标")
+    except Exception as exc:  # noqa: BLE001
+        logger.warning(f"模型权重保存失败（结果文件不受影响）: {exc}")
+
     print(f"\n结果已保存至: {run_dir.resolve()}")
     print("  performance.json  — 绩效指标")
     print("  forecasts.parquet — 预测宽表")
     print("  portfolios/       — 各组合收益序列")
     print("  diagnostics.json  — 完整参数记录")
+    print("  model/            — 模型权重（可用 engine.load_model 重新加载）")
 
 
 if __name__ == "__main__":

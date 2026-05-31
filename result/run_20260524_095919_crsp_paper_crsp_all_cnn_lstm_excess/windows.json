@@ -1,0 +1,184 @@
+{
+  "windows": [
+    {
+      "index": 0,
+      "train_start": "1927-01",
+      "train_end": "1963-06",
+      "forecast_start": "1963-07",
+      "forecast_end": "1974-12",
+      "model_id": "window_196306",
+      "model_dir": "window_196306",
+      "model_path": "E:\\phd\\LLM_trading\\charting_by_machine\\result\\run_20260524_095919_crsp_paper_crsp_all_cnn_lstm_excess\\models\\window_196306",
+      "metrics": {
+        "train_spearman_corr": 0.1340747996351659,
+        "val_spearman_corr": 0.1261178118325761,
+        "train_mse": 0.9503840007467589,
+        "val_mse": 0.9489160956081634,
+        "n_samples": 179768,
+        "n_train": 125838,
+        "n_val": 53930,
+        "val_split": "random",
+        "fitting_months_only": true,
+        "feature_preprocessing": "none",
+        "optimization_period": [
+          "1927-01",
+          "1963-06"
+        ],
+        "non_fitting_spearman_corr": 0.12303915065962201,
+        "non_fitting_spearman_target": 0.12303915065962201,
+        "n_non_fitting_samples": 179724
+      },
+      "n_forecast_months": 138
+    },
+    {
+      "index": 1,
+      "train_start": "1927-01",
+      "train_end": "1974-12",
+      "forecast_start": "1975-01",
+      "forecast_end": "1984-12",
+      "model_id": "window_197412",
+      "model_dir": "window_197412",
+      "model_path": "E:\\phd\\LLM_trading\\charting_by_machine\\result\\run_20260524_095919_crsp_paper_crsp_all_cnn_lstm_excess\\models\\window_197412",
+      "metrics": {
+        "train_spearman_corr": 0.11702673343021865,
+        "val_spearman_corr": 0.12215566758469228,
+        "train_mse": 0.9503717703525281,
+        "val_mse": 0.951335128116416,
+        "n_samples": 339267,
+        "n_train": 237487,
+        "n_val": 101780,
+        "val_split": "random",
+        "fitting_months_only": true,
+        "feature_preprocessing": "none",
+        "optimization_period": [
+          "1927-01",
+          "1974-12"
+        ],
+        "non_fitting_spearman_corr": 0.1240971462384654,
+        "non_fitting_spearman_target": 0.1240971462384654,
+        "n_non_fitting_samples": 341691
+      },
+      "n_forecast_months": 120
+    },
+    {
+      "index": 2,
+      "train_start": "1927-01",
+      "train_end": "1984-12",
+      "forecast_start": "1985-01",
+      "forecast_end": "1994-12",
+      "model_id": "window_198412",
+      "model_dir": "window_198412",
+      "model_path": "E:\\phd\\LLM_trading\\charting_by_machine\\result\\run_20260524_095919_crsp_paper_crsp_all_cnn_lstm_excess\\models\\window_198412",
+      "metrics": {
+        "train_spearman_corr": 0.11281818573589107,
+        "val_spearman_corr": 0.10266315201498984,
+        "train_mse": 0.9457146361989549,
+        "val_mse": 0.9461203256570645,
+        "n_samples": 612947,
+        "n_train": 429063,
+        "n_val": 183884,
+        "val_split": "random",
+        "fitting_months_only": true,
+        "feature_preprocessing": "none",
+        "optimization_period": [
+          "1927-01",
+          "1984-12"
+        ],
+        "non_fitting_spearman_corr": 0.1256866096533123,
+        "non_fitting_spearman_target": 0.1256866096533123,
+        "n_non_fitting_samples": 614985
+      },
+      "n_forecast_months": 120
+    },
+    {
+      "index": 3,
+      "train_start": "1927-01",
+      "train_end": "1994-12",
+      "forecast_start": "1995-01",
+      "forecast_end": "2004-12",
+      "model_id": "window_199412",
+      "model_dir": "window_199412",
+      "model_path": "E:\\phd\\LLM_trading\\charting_by_machine\\result\\run_20260524_095919_crsp_paper_crsp_all_cnn_lstm_excess\\models\\window_199412",
+      "metrics": {
+        "train_spearman_corr": 0.10705729405265747,
+        "val_spearman_corr": 0.10779546030928464,
+        "train_mse": 0.9527553116060876,
+        "val_mse": 0.9535278814369802,
+        "n_samples": 947094,
+        "n_train": 662966,
+        "n_val": 284128,
+        "val_split": "random",
+        "fitting_months_only": true,
+        "feature_preprocessing": "none",
+        "optimization_period": [
+          "1927-01",
+          "1994-12"
+        ],
+        "non_fitting_spearman_corr": 0.12447331227333984,
+        "non_fitting_spearman_target": 0.12447331227333984,
+        "n_non_fitting_samples": 949287
+      },
+      "n_forecast_months": 120
+    },
+    {
+      "index": 4,
+      "train_start": "1927-01",
+      "train_end": "2004-12",
+      "forecast_start": "2005-01",
+      "forecast_end": "2014-12",
+      "model_id": "window_200412",
+      "model_dir": "window_200412",
+      "model_path": "E:\\phd\\LLM_trading\\charting_by_machine\\result\\run_20260524_095919_crsp_paper_crsp_all_cnn_lstm_excess\\models\\window_200412",
+      "metrics": {
+        "train_spearman_corr": 0.10591904568113791,
+        "val_spearman_corr": 0.10519557030262648,
+        "train_mse": 0.957149614774468,
+        "val_mse": 0.9555376850391908,
+        "n_samples": 1310254,
+        "n_train": 917178,
+        "n_val": 393076,
+        "val_split": "random",
+        "fitting_months_only": true,
+        "feature_preprocessing": "none",
+        "optimization_period": [
+          "1927-01",
+          "2004-12"
+        ],
+        "non_fitting_spearman_corr": 0.12321344866163474,
+        "non_fitting_spearman_target": 0.12321344866163474,
+        "n_non_fitting_samples": 1312650
+      },
+      "n_forecast_months": 120
+    },
+    {
+      "index": 5,
+      "train_start": "1927-01",
+      "train_end": "2014-12",
+      "forecast_start": "2015-01",
+      "forecast_end": "2022-12",
+      "model_id": "window_201412",
+      "model_dir": "window_201412",
+      "model_path": "E:\\phd\\LLM_trading\\charting_by_machine\\result\\run_20260524_095919_crsp_paper_crsp_all_cnn_lstm_excess\\models\\window_201412",
+      "metrics": {
+        "train_spearman_corr": 0.09762704715963036,
+        "val_spearman_corr": 0.0977003498073878,
+        "train_mse": 0.9608231758540998,
+        "val_mse": 0.9587209351752406,
+        "n_samples": 1562535,
+        "n_train": 1093775,
+        "n_val": 468760,
+        "val_split": "random",
+        "fitting_months_only": true,
+        "feature_preprocessing": "none",
+        "optimization_period": [
+          "1927-01",
+          "2014-12"
+        ],
+        "non_fitting_spearman_corr": 0.11757162370822108,
+        "non_fitting_spearman_target": 0.11757162370822108,
+        "n_non_fitting_samples": 1564772
+      },
+      "n_forecast_months": 96
+    }
+  ]
+}

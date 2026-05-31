@@ -1,0 +1,13 @@
+主实验十分位 Table 3 (1963-07 → 2022-12)
+  断点: NYSE-only | 持仓: 全合格样本
+  P1            mean= -0.143%  Sharpe=-0.073  t= -0.51
+  P2            mean=  0.326%  Sharpe= 0.192  t=  1.37
+  P3            mean=  0.329%  Sharpe= 0.214  t=  1.58
+  P4            mean=  0.455%  Sharpe= 0.319  t=  2.32
+  P5            mean=  0.629%  Sharpe= 0.462  t=  3.56
+  P6            mean=  0.683%  Sharpe= 0.522  t=  4.04
+  P7            mean=  0.725%  Sharpe= 0.560  t=  4.39
+  P8            mean=  0.719%  Sharpe= 0.562  t=  4.23
+  P9            mean=  0.728%  Sharpe= 0.573  t=  4.52
+  P10           mean=  0.935%  Sharpe= 0.619  t=  4.86
+  L/S (P10-P1)  mean=  1.078%  Sharpe= 0.726  t=  5.12

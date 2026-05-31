@@ -32,6 +32,7 @@ from loguru import logger
 
 from cbm.core.types import StockData
 from cbm.data.adapters.base import DataAdapter
+from cbm.data.crsp_sample_filter import apply_shumway_delisting, paper_ordinary_share_expr
 
 # ---------------------------------------------------------------------------
 # Paths
@@ -151,28 +152,12 @@ class CRSPLocalAdapter(DataAdapter):
         )
         lf = lf.filter(pl.col("PrimaryExch").is_in(exchanges))
         if self.filter_ordinary_shares:
-            lf = lf.filter(
-                (pl.col("USIncFlg") == "Y") & (pl.col("SecurityType") == "EQTY")
-            )
+            lf = lf.filter(paper_ordinary_share_expr())
         return lf
 
     @staticmethod
     def _apply_delisting_adjustment(df: pl.DataFrame) -> pl.DataFrame:
-        """Fill missing ``MthRet`` with ``-0.30`` for forced delistings.
-
-        This approximates the Shumway (1997) adjustment used in the paper.
-        Forced delistings are identified by ``DelReasonType`` starting with
-        ``"5"`` (CRSP codes 500–591) when ``MthRet`` is null.
-        """
-        return df.with_columns(
-            pl.when(
-                pl.col("ret").is_null()
-                & pl.col("del_reason").cast(pl.Utf8).str.starts_with("5")
-            )
-            .then(pl.lit(-0.30))
-            .otherwise(pl.col("ret"))
-            .alias("ret")
-        )
+        return apply_shumway_delisting(df, ret_col="ret")
 
     # ------------------------------------------------------------------
     # DataAdapter interface

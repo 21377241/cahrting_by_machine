@@ -153,6 +153,7 @@ class FeatureEngineer:
 
         features_array = feature_cube[ti, ji, :]           # (n_valid, L)
         targets_array  = target_slice[ti, ji]               # (n_valid,)
+        excess_array   = returns_arr[L:, :][ti, ji]         # (n_valid,) month-t excess
         dates_array    = dates_slice[ti]                    # (n_valid,)
         tickers_array  = np.array(tickers, dtype=object)[ji]  # (n_valid,)
 
@@ -184,6 +185,7 @@ class FeatureEngineer:
             dates=dates_array,
             tickers=tickers_array,
             market_caps=market_caps_array,
+            excess_returns=excess_array,
         )
     
     def _calculate_cumulative_returns(
